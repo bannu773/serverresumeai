@@ -23,7 +23,7 @@ app.use(cors({
 
 connectDB();
 
-// Routes
+// Routes 
 app.use('/api/v1/', require('./routes/userRoutes'))
 
 const port = process.env.PORT ||  8080;

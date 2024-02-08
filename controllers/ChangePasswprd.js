@@ -15,7 +15,7 @@ module.exports.generateResetLink = async (req, res) => {
       });
     }
     const salt = crypto.randomBytes(10).toString("hex");
-    const url = `http://localhost:8080/api/v1/resetpassword/${salt}`;
+    const url = `https://landing-page-3d-olive.vercel.app/api/v1/resetpassword/${salt}`;
     const message = `Reset your password link`;
     await userModel.findOneAndUpdate(
       { email },
@@ -66,7 +66,7 @@ module.exports.resetPassword = async (req, res) => {
       { password: hashPassword },
       { new: true }
     );
-    return res.status(500).json({
+    return res.status(200).json({
       success: true,
       message: "password haas been changed successfull",
       updatedUser,
